@@ -9,22 +9,11 @@ const subtract = function(a, b) {
 };
 
 const sum = function(array) {
-  let len = array.length;
-  let number = 0;
-  for(let i = 0; i < len; i++) {
-    number += array[i];
-  }
-
-  return parseInt(number);
+  return array.reduce((total, current) => total + current, 0);
 };
 
 const multiply = function(array) {
-  let len = array.length;
-  let number = array[0];
-  for(let i = 1; i < len; i++) {
-    number *= array[i];
-  }
-  return parseInt(number);
+  return array.reduce((total, current) => total * current, 1);
 };
 
 const power = function(a, b) {
@@ -35,15 +24,9 @@ const power = function(a, b) {
 const factorial = function(a) {
 	if (a === 0){
     return 1;
-  } else if (a < 0) {
-    return undefined;
-  } else {
-    let answer = a;
-    for(let i = a - 1; i > 0; i--) {
-      answer *= i;
-    }
-    return answer;
-  }    
+  }
+  
+  return a * factorial(a - 1);
 };
 
 // Do not edit below this line
